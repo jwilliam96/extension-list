@@ -1,69 +1,27 @@
 import './App.css'
+import SvgLogo from './components/svg/svg-logo'
+import ToggleDark from './hooks/toggleDark'
 
 function App() {
 
+  const [dark, setDark] = ToggleDark()
+
   return (
-    <main>
-      Extensions List
+    <div className={`body ${dark && "dark"}`}>
+      <header className='header'>
+        <SvgLogo dark={dark} />
 
-      All
-      Active
-      Inactive
+        <div className='button-dark' onClick={setDark}>
+          {
+            dark ?
+              <img src="/public/images/icon-sun.svg" alt="icon sun" />
+              :
+              <img src="/public/images/icon-moon.svg" alt="icon sun" />
+          }
+        </div>
+      </header>
 
-      DevLens
-      Quickly inspect page layouts and visualize element boundaries.
-      Remove
-
-      StyleSpy
-      Instantly analyze and copy CSS from any webpage element.
-      Remove
-
-      SpeedBoost
-      Optimizes browser resource usage to accelerate page loading.
-      Remove
-
-      JSONWizard
-      Formats, validates, and prettifies JSON responses in-browser.
-      Remove
-
-      TabMaster Pro
-      Organizes browser tabs into groups and sessions.
-      Remove
-
-      ViewportBuddy
-      Simulates various screen resolutions directly within the browser.
-      Remove
-
-      Markup Notes
-      Enables annotation and notes directly onto webpages for collaborative debugging.
-      Remove
-
-      GridGuides
-      Overlay customizable grids and alignment guides on any webpage.
-      Remove
-
-      Palette Picker
-      Instantly extracts color palettes from any webpage.
-      Remove
-
-      LinkChecker
-      Scans and highlights broken links on any page.
-      Remove
-
-      DOM Snapshot
-      Capture and export DOM structures quickly.
-      Remove
-
-      ConsolePlus
-      Enhanced developer console with advanced filtering and logging.
-      Remove
-
-      <div class="attribution">
-        Challenge by <a href="https://www.frontendmentor.io?ref=challenge">Frontend Mentor</a>.
-        Coded by <a href="#">Your Name Here</a>.
-      </div>
-
-    </main>
+    </div>
   )
 }
 
