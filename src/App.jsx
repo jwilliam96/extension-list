@@ -1,10 +1,13 @@
 import './App.css'
 import SvgLogo from './components/svg/svg-logo'
-import ToggleDark from './hooks/toggleDark'
+import UseToggleDark from './hooks/useToggleDark'
+import lists from "./helpers/lists"
+import UseLists from './hooks/useLists'
 
 function App() {
 
-  const [dark, setDark] = ToggleDark()
+  const [dark, setDark] = UseToggleDark()
+  const [listActive, handleList] = UseLists()
 
   return (
     <div className={`body ${dark && "dark"}`}>
@@ -20,6 +23,23 @@ function App() {
           }
         </div>
       </header>
+
+      <div className='container-list'>
+        <h1>Extensions List</h1>
+
+        <ul className='list'>
+          {
+            lists.map((list) => (
+              <li
+                key={list}
+                className={`list-item ${listActive === list && "active"}`}
+                onClick={() => handleList(list)}>
+                {list}
+              </li>
+            ))
+          }
+        </ul>
+      </div>
 
     </div>
   )

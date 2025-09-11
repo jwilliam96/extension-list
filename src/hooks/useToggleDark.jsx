@@ -1,6 +1,6 @@
 import { useState } from "react"
 
-function ToggleDark() {
+function UseToggleDark() {
 
     const [dark, setDark] = useState(true)
 
@@ -12,4 +12,4 @@ function ToggleDark() {
 
 }
 
-export default ToggleDark
+export default UseToggleDark

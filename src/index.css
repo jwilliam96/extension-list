@@ -1,9 +1,14 @@
 :root {
     --color-fondo-card: hsl(200, 60%, 99%);
-    --color-neutral-100: hsl(0, 0%, 93%);
+    --color-button: hsl(200, 60%, 99%);
+    --color-text: hsl(227, 75%, 14%);
+    --color-text-active: hsl(200, 60%, 99%);
     --color-sombra-card: hsl(217, 61%, 90%);
     --color-button-dark: hsl(0, 0%, 78%);
     --color-button-inactive: hsl(226, 11%, 37%);
+    --border-button: hsl(0, 0%, 78%);
+
+    --color-neutral-100: hsl(0, 0%, 93%);
 
     --color-neutral-900: hsl(227, 75%, 14%);
 
@@ -13,18 +18,22 @@
 
     --color-gradient-fondo: linear-gradient(180deg, #EBF2FC 0%, #EEF8F9 100%);
 
-    --font-family: "Noto Sans";
 }
 
 .dark {
     --color-fondo-card: hsl(226, 25%, 17%);
+    --color-text: hsl(200, 60%, 99%);
+    --color-text-active: hsl(227, 75%, 14%);
     --color-sombra-card: #040918;
     --color-button-dark: hsl(225, 23%, 24%);
+    --color-button: hsl(225, 23%, 24%);
+    --border-button: hsl(226, 11%, 37%);
 
     --color-gradient-fondo: linear-gradient(180deg, #040918 0%, #091540 100%);
 }
 
 * {
+    font-family: sans-serif;
     transition: background-color 0.5s ease, color 0.5s ease;
 }
 
@@ -32,6 +41,8 @@
     min-height: 100vh;
     background: var(--color-gradient-fondo);
     padding: 20px 15px;
+    color: var(--color-text);
+    font-family: var(--font-family);
 }
 
 .header {
@@ -50,4 +61,33 @@
     padding: 10px;
     display: grid;
     place-content: center;
+}
+
+h1 {
+    margin-top: 40px;
+}
+
+.container-list {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.list {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+}
+
+.list-item {
+    background-color: var(--color-button);
+    padding: 15px 20px;
+    border-radius: 30px;
+    border: 1px solid var(--border-button);
+}
+
+.active {
+    background-color: var(--color-red-500);
+    color: var(--color-text-active);
+    font-weight: 600;
 }
