@@ -1,12 +1,15 @@
-import './App.css'
+import CardList from './components/ui/CardList'
 import SvgLogo from './components/svg/svg-logo'
-import UseToggleDark from './hooks/useToggleDark'
-import lists from "./helpers/lists"
+import UseToggle from './hooks/useToggle'
 import UseLists from './hooks/useLists'
+import lists from "./helpers/lists"
+
+import './App.css'
 
 function App() {
 
-  const [dark, setDark] = UseToggleDark()
+  const [dark, setDark] = UseToggle()
+  const [state, setState] = UseToggle()
   const [listActive, handleList] = UseLists()
 
   return (
@@ -41,6 +44,9 @@ function App() {
         </ul>
       </div>
 
+
+      {/* CARD  */}
+      <CardList state={state} setState={setState} />
     </div>
   )
 }
