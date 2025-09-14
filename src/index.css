@@ -6,6 +6,7 @@
     --color-button: hsl(200, 60%, 99%);
     --color-button-inactive: hsl(226, 11%, 37%);
     --color-button-dark: hsl(0, 0%, 93%);
+    --color-button-dark-hover: hsl(0, 0%, 78%);
     --border-button: hsl(0, 0%, 78%);
     --button-state: hsl(0, 0%, 78%);
 
@@ -31,14 +32,16 @@
     --color-button-dark: hsl(225, 23%, 24%);
     --border-button: hsl(226, 11%, 37%);
     --button-state: hsl(226, 11%, 37%);
+    --color-button-dark-hover: hsl(226, 11%, 37%);
 
     --color-text: hsl(200, 60%, 99%);
     --color-text-active: hsl(227, 75%, 14%);
     --text-description: hsl(0, 0%, 78%);
 
     --fondo-list-hover: hsl(226, 11%, 37%);
-    --fondo-active: hsl(3, 71%, 56%);
-    --fondo-active-hover: hsl(3, 86%, 64%);
+    --fondo-active: hsl(3, 86%, 64%);
+    ;
+    --fondo-active-hover: hsl(3, 71%, 56%);
 
     --color-gradient-fondo: linear-gradient(180deg, #040918 0%, #091540 100%);
 }
@@ -51,9 +54,15 @@
 .body {
     min-height: 100vh;
     background: var(--color-gradient-fondo);
-    padding: 20px 15px;
     color: var(--color-text);
     font-family: var(--font-family);
+    padding: 20px 15px;
+    margin: 0 auto;
+}
+
+.main {
+    max-width: 1020px;
+    margin: 0 auto 200px;
 }
 
 .header {
@@ -72,6 +81,11 @@
     padding: 10px;
     display: grid;
     place-content: center;
+    cursor: pointer;
+}
+
+.button-dark:hover {
+    background-color: var(--color-button-dark-hover);
 }
 
 h1 {
@@ -79,20 +93,20 @@ h1 {
 }
 
 .container-list {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    display: grid;
+    justify-content: center;
+    justify-items: center;
 }
 
 .list {
     display: flex;
-    justify-content: center;
     gap: 15px;
+    cursor: pointer;
 }
 
 .list-item {
     background-color: var(--color-button);
-    padding: 15px 20px;
+    padding: 12px 20px;
     border-radius: 30px;
     border: 1px solid var(--border-button);
 }
@@ -111,13 +125,21 @@ h1 {
     background-color: var(--fondo-active-hover);
 }
 
+.containers-cards {
+    display: grid;
+    justify-content: center;
+    margin-top: 40px;
+    gap: 20px;
+}
+
 .card {
-    margin-top: 20px;
     background-color: var(--fondo-card);
     max-width: 330px;
+    height: 198px;
     border-radius: 20px;
     padding: 20px;
     border: 1px solid var(--border-card);
+    display: grid;
 }
 
 .card-content {
@@ -144,6 +166,12 @@ h1 {
     color: var(--color-text);
     background-color: var(--fondo-card);
     border: 1px solid var(--border-button);
+    cursor: pointer;
+}
+
+.card-button:hover {
+    background-color: var(--fondo-active);
+    color: var(--color-text-active);
 }
 
 .card-state-content {
@@ -153,6 +181,7 @@ h1 {
     border-radius: 50px;
     display: flex;
     align-items: center;
+    cursor: pointer;
 }
 
 .state-content-active {
@@ -169,4 +198,29 @@ h1 {
 
 .state-active {
     translate: 100%;
+}
+
+@media (width >=768px) {
+    .containers-cards {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 15px;
+    }
+
+}
+
+@media (width >=1050px) {
+    .containers-cards {
+        justify-content: start;
+    }
+
+    .container-list {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .list {
+        max-width: max-content;
+    }
 }
